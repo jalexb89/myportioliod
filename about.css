@@ -1,0 +1,13 @@
+body{
+    background: linear-gradient(pink,white);
+    height: 100vh;
+
+}
+.mrc{
+    flex: 1;
+    position: relative;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 0 2rem 1rem rgb(150, 150, 156);
+}
+

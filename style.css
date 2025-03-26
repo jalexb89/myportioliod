@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+:root{
+    --bg-color:white;
+    --text-color: grey;
+    --main-color: brown;
+    --white-color:white;
+    --shadow-color:rgba(0,0,0, .2);
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body{
+    background: linear-gradient(white, pink);
+    color:var(--text-color);
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+    box-shadow: -7px -7px 17px #fff,
+                 7px 7px 17px rgba(70, 70, 70, 0.15);
+                 box-sizing: border-box;
+    background: rgb(236, 237, 233);
+    display: flex;
+    align-items: center;
+    z-index: 11;
+}
+.logo {
+    font-size: 2.5rem;
+    color:pink;
+    font-weight: 600;
+    cursor: default;
+    margin-right: auto;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+    box-shadow: -7px -7px 17px #fff,
+                 7px 7px 17px rgba(70, 70, 70, 0.15);
+                 padding:0 15px;
+                 transition: 0.4s;
+                 cursor: pointer;
+                 float: left;
+}
+.logo:hover{
+    color: #f7f7f7;
+    background: #ff7ecb;
+    box-shadow: 7px 7px 17px #fff,
+    -7px -7px 17px rgba(70, 70, 70, 0.15);
+}
+.navbar a{
+    position: relative;
+    font-size: 1.7rem;
+    color: gray;
+    font-weight: 500;
+    margin-right: 3.5rem;
+
+}
+.navbar a:hover{
+    color: pink;
+    transform: scale(200px);
+    box-shadow: 7px 7px 17px #fff,
+    -7px -7px 17px rgba(70, 70, 70, 0.15);
+    background: transparent;
+}
+#darkMode-icon {
+    font-size: 2.4rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+section{
+    min-height: 100vh;
+    padding: 10rem 7% 2rem;
+}
+
+
+.home{
+display: flex;
+align-items: center;
+}
+
+.home .home-content {
+    max-width: 44rem;
+}
+.home-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: .3
+
+}
+
+.home-content h1{
+    font-size: 5.6rem;
+    font-weight: 700;
+}
+.home-content p {
+    font-size: 1.6rem;
+}
+
+.home-content .social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 2.5rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+.home-content .social-media a:hover {
+    background: var(--main-color);
+    color: red;
+    transform: translateY(-10px);
+
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 1.6rem;
+    color: #f7f7f7;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+.btn:hover {
+    background-color: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+    transform:translateY(20px);
+}
+.right-image {
+    position: absolute;
+    right: 700px;
+    max-width: 700px;
+    height: 500px;
+    padding: 20px;
+    bottom: 200px;
+    box-shadow: 0 1rem 2rem pink;
+    border-radius: 20px;
+    cursor: crosshair;
+    transition: 0.5s;
+}
+.right-image:hover{
+    transform:  translateY(-20px);
+    transform: scale(20px);
+}
+.right2-image {
+    position: absolute;
+    right: 300px;
+    max-width: 700px;
+    height: 500px;
+    padding: 20px;
+    bottom: 200px;
+    box-shadow: 0 1rem 2rem pink;
+    border-radius: 20px;
+    cursor: crosshair;
+    transition: 0.5s;
+}
+.right2-image:hover{
+    transform:  translateY(-20px);
+    transform: scale(20px);}
+.home .profession-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 768px;
+    height: 768px;
+   
+    overflow: hidden;
+    pointer-events: none;
+}
+span {
+    color: var(--main-color);
+}
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-img img {
+    width: 40vh;
+    direction: right;
+}
+.heading {
+    font-size: 4.5rem;
+    text-align: center;
+}
+.about-content h2 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+
+
+
+
+
+
+
+
+
+
+

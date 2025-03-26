@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Swiper</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(white,pink);
+            color: #333;
+            height: 100vh;
+        }
+
+        .gallery-section {
+            padding: 80px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+        }
+
+        /* Swiper Container Styles */
+        .swiper-container {
+            width: 100%;
+            height: 500px;
+            margin-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Thumbnail Gallery Styles */
+        .thumbnail-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .thumbnail-item {
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .thumbnail-item:hover {
+            transform: scale(1.05);
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-item.active::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid #3498db;
+            border-radius: 5px;
+        }
+
+        /* Swiper Navigation Styles */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #3498db;
+            background: rgba(255, 255, 255, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.5rem;
+        }
+
+        .swiper-pagination-bullet {
+            background: #bdc3c7;
+            opacity: 1;
+            width: 12px;
+            height: 12px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #3498db;
+        }
+
+        /* Image Caption Styles */
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide:hover .image-caption {
+            transform: translateY(0);
+        }
+
+        .caption-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .swiper-container {
+                height: 400px;
+            }
+            
+            .swiper-slide {
+                width: 250px;
+                height: 350px;
+            }
+            
+            .thumbnail-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .swiper-container {
+                height: 350px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .thumbnail-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 10px;
+            }
+            
+            .thumbnail-item {
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .swiper-container {
+                height: 300px;
+            }
+            
+            .swiper-slide {
+                width: 200px;
+                height: 280px;
+            }
+            
+            .thumbnail-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+            
+            .thumbnail-item {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="gallery-section">
+        <h2 class="section-title">Our Gallery</h2>
+        
+        <!-- Main Swiper Gallery -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="images/photo_6_2025-03-25_21-56-50.jpg" alt="Nature Image 1">
+                    <div class="image-caption">
+                        <h3 class="caption-title">Traitor</h3>
+                        <p>back stabber</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="images/photo_6_2025-03-25_21-57-10.jpg" alt="City Image 1">
+                    <div class="image-caption">
+                        <h3 class="caption-title">Urban Life</h3>
+                        <p>City skyline at dusk</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="images/photo_7_2025-03-25_21-56-50.jpg" alt="Architecture Image 1">
+                    <div class="image-caption">
+                        <h3 class="caption-title">Cousin</h3>
+                        <p>WELAKA</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <img src="images/photo_7_2025-03-25_21-57-10.jpg" alt="Travel Image 1">
+                    <div class="image-caption">
+                        <h3 class="caption-title">Old hulk</h3>
+                        <p>Shimagile but still acts like a 10 year old</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 -->
+                <div class="swiper-slide">
+                    <img src="images/photo_8_2025-03-25_21-56-50.jpg" alt="Food Image 1">
+                    <div class="image-caption">
+                        <h3 class="caption-title">Random ahhh pic</h3>
+                        <p>PDM</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 6 -->
+                <div class="swiper-slide">
+                    <img src="images/photo_9_2025-03-25_21-56-50.jpg" alt="Art Image 1">
+                    <div class="image-caption">
+                        <h3 class="caption-title">WURIYE</h3>
+                        <p>pov she's so annoyed</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        
+        <!-- Thumbnail Gallery -->
+       
+    <!-- Scripts -->
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize main Swiper gallery
+            const gallerySwiper = new Swiper('.swiper-container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 200,
+                    modifier: 2,
+                    slideShadows: true,
+                },
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }
+            });
+            
+            // Thumbnail gallery interaction
+            const thumbnails = document.querySelectorAll('.thumbnail-item');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    
+                    // Get the index from data attribute
+                    const index = parseInt(this.getAttribute('data-index'));
+                    
+                    // Slide to the corresponding image
+                    gallerySwiper.slideTo(index);
+                });
+            });
+            
+            // Update active thumbnail when main swiper changes
+            gallerySwiper.on('slideChange', function() {
+                const activeIndex = this.realIndex;
+                thumbnails.forEach((thumb, index) => {
+                    if (index === activeIndex % thumbnails.length) {
+                        thumb.classList.add('active');
+                    } else {
+                        thumb.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

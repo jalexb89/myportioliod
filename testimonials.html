@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials with Swiper</title>
+    <!-- Link to Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(pink , white);
+            color: #333;
+            line-height: 1.6;
+            height: 100vh;
+        }
+        
+        .testimonials-section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+        }
+        
+        /* Swiper Container Styles */
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            padding: 40px 0;
+        }
+        
+        .swiper-slide {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-content::before,
+        .testimonial-content::after {
+            content: '"';
+            font-size: 3rem;
+            color: rgba(52, 152, 219, 0.2);
+            position: absolute;
+        }
+        
+        .testimonial-content::before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-content::after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .client-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #3498db;
+        }
+        
+        .client-details h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        
+        .client-details p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+        
+        .rating {
+            color: #f1c40f;
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Swiper Navigation Styles */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #3498db;
+            background: rgba(255, 255, 255, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.5rem;
+        }
+        
+        .swiper-pagination-bullet {
+            background: #bdc3c7;
+            opacity: 1;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #3498db;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .swiper-slide {
+                padding: 30px 20px;
+            }
+            
+            .client-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .client-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .client-details h3,
+            .client-details p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="testimonials-section">
+        <h2 class="section-title">Student Testimonials</h2>
+        
+        <!-- Swiper Container -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Testimonial Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="rating">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="testimonial-content">
+                        "Dawit Shifeta is that rare combination of brilliance, dedication, and natural charisma. His genius-level intellect is matched only by his towering work ethic - literally and figuratively. Standing tall both physically and professionally, Dawit approaches every challenge with razor-sharp focus and an innovative mindset that consistently delivers exceptional results.
+
+What truly sets Dawit apart is how he pairs his handsome charm with genuine substance. 
+
+"
+                    </p>
+                    <div class="client-info">
+                        <img src="" alt="Abigail" class="client-img">
+                        <div class="client-details">
+                            <h3>Abigail Demeke</h3>
+                            <p>Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="rating">
+                        ★ ★ ★ ★
+                    </div>
+                    <p class="testimonial-content">
+                        "Working alongside Dawit Shifeta has been a masterclass in excellence. His towering intellect cuts through complex problems with ease, while his relentless work ethic inspires everyone on our team. Beyond his sharp mind and handsome presence, Dawit brings a rare combination of strategic vision and meticulous execution to every project. He's the complete package - the kind of professional who elevates entire organizations through both brilliance and determination."</p>
+
+                    <div class="client-info">
+                        <img src="" alt="Ramadan" class="client-img">
+                        <div class="client-details">
+                            <h3>Ramadan Salehuddin</h3>
+                            <p> Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="rating">
+                        ★ ★ ★ ★ ☆
+                    </div>
+                    <p class="testimonial-content">
+                        " I've never encountered a student like Dawit Shifeta. His genius-level insights regularly leave faculty members awestruck, while his tall, commanding presence naturally positions him as a leader among peers. What impresses me most isn't just his intellectual gifts, but the late nights I see him working in the lab - proof that even the most talented individuals need unmatched dedication to excel. Dawit represents the ideal balance of natural ability and earned success."
+
+                    </p>
+                    <div class="client-info">
+                        <img src="" alt="Owis Naeem" class="client-img">
+                        <div class="client-details">
+                            <h3>Owis Naeem</h3>
+                            <p>Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="rating">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="testimonial-content">
+                        "Dawit Shifeta is every entrepreneur's dream partner. His razor-sharp business acumen solves problems before others see them coming, while his work ethic puts seasoned executives to shame. Clients are immediately disarmed by his handsome charm, then stunned by the depth of his strategic thinking. In boardrooms or late-night strategy sessions, Dawit brings the same intensity - a rare fusion of intellectual firepower and tireless execution that drives real results."
+                    </p>
+                    <div class="client-info">
+                        <img src="" alt="Dagmawi Hailu" class="client-img">
+                        <div class="client-details">
+                            <h3>Dagmawi Hailu</h3>
+                            <p>Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <!-- Initialize Swiper -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var swiper = new Swiper('.swiper-container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2,
+                    slideShadows: true,
+                },
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    },
+                }
+            });
+        });
+    </script>
+</body>
+</html>

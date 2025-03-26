@@ -1,0 +1,39 @@
+body{
+background: #d1cdcd;
+width: 100%;
+}
+.cuco{
+    padding-left: 20px;
+}
+.scr{
+    height: 50vh;
+    width:50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50px;
+    top: 100px;
+    left: 200px;
+    padding-left: 20px;
+    box-shadow:24px 24px 50px #a8aead,
+               -24px -24px 50px #e4eceb ;
+               transition: 0.5s ease-in-out;
+}
+.scr:hover{
+    transform: translateX(300px);
+}
+.src p{
+    padding: 20px;
+    color: azures;
+}
+.vid{
+   float: right;
+    height: 20px;
+    width: 400px;    
+    padding-right: 300px;
+   
+}
+.lx{
+    height: 40px;
+}
